@@ -6,7 +6,7 @@ import os
 import numpy as np
 import cv2
 
-# image and mask directories
+# image, masks and output directories
 target_image_directory = "/home/user/target_image_directory/"
 target_mask_directory = "/home/user/target_mask_directory/"
 target_output_directory = "/home/user/target_output_directory/"
@@ -17,9 +17,9 @@ alpha = 0.2
 
 # overlay image and mask and save the output image
 for img_file in target_image_files:
-    image_path = os.listdir(target_image_directory, img_file)
-    mask_path = os.listdir(target_mask_directory, ("mask_" + img_file))
-    output_path = os.listdir(target_output_directory, ("overlay_" + img_file))    
+    image_path = os.path.join(target_image_directory, img_file)
+    mask_path = os.path.join(target_mask_directory, ("mask_" + img_file))
+    output_path = os.path.join(target_output_directory, ("overlay_" + img_file))  
 
     img = cv2.cvtColor(cv2.imread(image_path), cv2.COLOR_BGR2RGB)
     mask = cv2.cvtColor(cv2.imread(mask_path), cv2.COLOR_BGR2RGB)
