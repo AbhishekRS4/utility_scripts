@@ -12,7 +12,10 @@ target_mask_directory = "/home/user/target_mask_directory/"
 target_output_directory = "/home/user/target_output_directory/"
 
 # list of all images
-target_image_files = os.listdir(target_image_directory)
+image_format = ".png"
+target_image_files = [x for x in os.listdir(target_image_directory) if x.endswith(image_format)]
+
+# alpha to control transparency of masks
 alpha = 0.2
 
 # overlay image and mask and save the output image
