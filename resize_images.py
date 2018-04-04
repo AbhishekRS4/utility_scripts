@@ -18,6 +18,6 @@ interpolation = cv2.INTER_LINEAR
 
 # resize the images and save in the destination directory
 for img_file in src_images_list:
-    img = cv2.imread(os.path.join(src_images_path, img_file))
-    img = cv2.resize(img, target_image_size, interpolation = interpolation)
-    cv2.imwrite(os.path.join(dst_images_path, img_file), img)
+	img = cv2.imread(os.path.join(src_images_path, img_file))
+	img = cv2.resize(img, target_image_size, interpolation = interpolation)
+	cv2.imwrite(os.path.join(dst_images_path, img_file), img)
