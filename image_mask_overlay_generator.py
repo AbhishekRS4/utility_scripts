@@ -17,15 +17,15 @@ alpha = 0.2
 
 # overlay image and mask and save the output image
 for img_file in target_image_files:
-    image_path = os.path.join(target_image_directory, img_file)
-    mask_path = os.path.join(target_mask_directory, ("mask_" + img_file))
-    output_path = os.path.join(target_output_directory, ("overlay_" + img_file))  
+	image_path = os.path.join(target_image_directory, img_file)
+	mask_path = os.path.join(target_mask_directory, ("mask_" + img_file))
+	output_path = os.path.join(target_output_directory, ("overlay_" + img_file))  
 
-    img = cv2.cvtColor(cv2.imread(image_path), cv2.COLOR_BGR2RGB)
-    mask = cv2.cvtColor(cv2.imread(mask_path), cv2.COLOR_BGR2RGB)
+ 	img = cv2.cvtColor(cv2.imread(image_path), cv2.COLOR_BGR2RGB)
+	mask = cv2.cvtColor(cv2.imread(mask_path), cv2.COLOR_BGR2RGB)
 
-    img_copy = img.copy()
-    img_mask_overlay = cv2.addWeighted(img_copy, 1, mask, alpha, 0, img)
-    img_mask_overlay = cv2.cvtColor(img_mask_overlay, cv2.COLOR_BGR2RGB)
-    
-    cv2.imwrite(output_path, img_mask_overlay)
+	img_copy = img.copy()
+	img_mask_overlay = cv2.addWeighted(img_copy, 1, mask, alpha, 0, img)
+ 	img_mask_overlay = cv2.cvtColor(img_mask_overlay, cv2.COLOR_BGR2RGB)
+
+	cv2.imwrite(output_path, img_mask_overlay)
