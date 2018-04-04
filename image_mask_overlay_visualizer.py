@@ -14,7 +14,8 @@ src_mask_directory = "masks"
 alpha = 0.2
 
 # list all images
-list_images = os.listdir(src_image_directory)
+image_format = ".png"
+list_images = [x for x in os.listdir(src_image_directory) if x.endswith(image_format)]
 
 def main():
 	counter = 0
