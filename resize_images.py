@@ -10,7 +10,8 @@ src_images_path = "/home/user/src_images_path/"
 dst_images_path = "/home/user/dst_images_path/"
 
 # list all the image files in the source directory
-src_images_list = os.listdir(src_images_path)
+image_format = ".png"
+src_images_list = [x for x in os.listdir(src_images_path) if x.endswith(image_format)]
 
 # set target image size and interpolation to use for resize
 target_image_size = (640, 480)
