@@ -16,4 +16,4 @@ print("Total Files in src directory : " + str(len(src_file_names)))
 
 # copy all files in src directory to destination directory with the same names
 for i in range(len(src_file_names)):
-    shutil.copy2(os.path.join(src_directory, src_file_names[i]), dst_directory)
+	shutil.copy2(os.path.join(src_directory, src_file_names[i]), dst_directory)
