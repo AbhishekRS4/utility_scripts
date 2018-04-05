@@ -24,7 +24,7 @@ predicted_labels = np.load(os.path.join(lbl_directory, lbl_predicted_file)).item
 # text color
 # line type
 font = cv2.FONT_HERSHEY_SIMPLEX
-text_position = (20, 20)
+text_position = (100, 200)
 font_scale = 1
 font_color = (255, 255, 255)
 line_type = 2
