@@ -34,7 +34,7 @@ line_type = 2
 # list all images
 image_format = ".png"
 list_images = [x for x in os.listdir(src_image_directory) if x.endswith(image_format)]
-
+list_images.sort()
 
 def main():
 	counter = 0
