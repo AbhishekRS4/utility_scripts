@@ -35,6 +35,7 @@ def main():
 	
 	# list all the required frames for the video
 	list_images = [x for x in os.listdir(src_directory) if x.endswith(image_format)]
+	list_images.sort()
 
 	print("Number of files to be converted into a video : " + str(len(list_images)))
 
