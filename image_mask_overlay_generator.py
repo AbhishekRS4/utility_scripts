@@ -14,6 +14,7 @@ target_output_directory = "/home/user/target_output_directory/"
 # list of all images
 image_format = ".png"
 target_image_files = [x for x in os.listdir(target_image_directory) if x.endswith(image_format)]
+target_image_files.sort()
 
 # alpha to control transparency of masks
 alpha = 0.2
