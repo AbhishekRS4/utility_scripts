@@ -10,7 +10,7 @@ def get_args(argv):
 
 	while(argv):
 		if argv[0][0] == '-':
-			options[argv[0]] = argv[1]
+			options[argv[0][1:]] = argv[1]
 		argv = argv[1:]
 
 	return options
