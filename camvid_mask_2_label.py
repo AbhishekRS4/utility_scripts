@@ -41,9 +41,9 @@ def main():
 
     parser = argparse.ArgumentParser()
     parser.add_argument('-src_dir', default=src_dir,
-                        type=str, help='path to load images')
+                        type=str, help='path to load masks')
     parser.add_argument('-out_dir', default=out_dir,
-                        type=str, help='path to save video')
+                        type=str, help='path to save labels')
 
     input_args = vars(parser.parse_args(sys.argv[1:]))
     for k in input_args.keys():
