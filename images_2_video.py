@@ -10,6 +10,10 @@ import cv2
 
 
 def create_video(src_dir, out_dir, vid_name, vid_encoder, img_pattern, height, width, fps):
+    # create the output directory if not present
+    if not os.path.exists(out_dir):
+        os.makedirs(out_dir)
+
     # video_writer is a Video Writer object
     video_writer = cv2.VideoWriter(os.path.join(
         out_dir, vid_name), cv2.VideoWriter_fourcc(*vid_encoder), fps, (width, height))
@@ -18,7 +22,8 @@ def create_video(src_dir, out_dir, vid_name, vid_encoder, img_pattern, height, w
     list_images = [x for x in os.listdir(src_dir) if x.endswith(img_pattern)]
     list_images.sort()
 
-    print('Number of files to be converted into a video : ' + str(len(list_images)))
+    print('Video generation started')
+    print('Number of images to be converted into a video : ' + str(len(list_images)))
 
     # convert the frames to video
     for img_name in list_images:
@@ -30,7 +35,7 @@ def create_video(src_dir, out_dir, vid_name, vid_encoder, img_pattern, height, w
     # release the Video Writer object
     video_writer.release()
 
-    print('Video has been successfully created in : ' + out_dir)
+    print(vid_name + ' has been successfully created in : ' + out_dir)
 
 
 def main():
@@ -77,10 +82,8 @@ def main():
         print(k + ': ' + str(input_args[k]))
     print('')
 
-    print('Video generation started')
     create_video(input_args['src_dir'], input_args['out_dir'], input_args['vid_name'], input_args['vid_encoder'],
                  input_args['img_pattern'], input_args['height'], input_args['width'], input_args['fps'])
-    print('Video generation completed')
 
 
 if __name__ == '__main__':
