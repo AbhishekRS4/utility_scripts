@@ -1,5 +1,5 @@
 # Utility Function scripts
 
-* This repo contains some of the commonly used 
+* This repo contains some of the commonly used
     - utility functions
-    - simple visualizer
+    - visualizers
