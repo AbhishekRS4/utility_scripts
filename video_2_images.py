@@ -8,6 +8,7 @@ import argparse
 import numpy as np
 import cv2
 
+
 def video_to_images(vid_name, out_dir, img_prefix, img_format):
     # create the output directory if not present
     if not os.path.exists(out_dir):
@@ -29,14 +30,16 @@ def video_to_images(vid_name, out_dir, img_prefix, img_format):
             break
 
         # save the successfully extracted frame
-        cv2.imwrite(os.path.join(out_dir, img_prefix + str(frame_count) + img_format), image_frame)
+        cv2.imwrite(os.path.join(out_dir, img_prefix +
+                                 str(frame_count) + img_format), image_frame)
         frame_count += 1
 
     print('Extracting images completed')
     print('Extracted images are in : ' + out_dir)
     print('')
 
-def main():  
+
+def main():
     # video file path whose frames have to be saved
     # destination directory where the frames have to be saved
     # file name with which the frames should be saved
@@ -54,14 +57,16 @@ def main():
     parser.add_argument('-img_prefix', default=img_prefix,
                         type=str, help='prefix for image names')
     parser.add_argument('-img_format', default=img_format,
-                        type=str, help='image saving format') 
+                        type=str, help='image saving format')
 
     input_args = vars(parser.parse_args(sys.argv[1:]))
     for k in input_args.keys():
         print(k + ': ' + str(input_args[k]))
     print('')
 
-    video_to_images(input_args['vid_name'], input_args['out_dir'], input_args['img_prefix'], input_args['img_format'])
+    video_to_images(input_args['vid_name'], input_args['out_dir'],
+                    input_args['img_prefix'], input_args['img_format'])
+
 
 if __name__ == '__main__':
     main()
