@@ -15,6 +15,9 @@ def horizontal_stack_images(FLAGS):
     tar_output_dir = FLAGS.tar_output_dir
     img_format = FLAGS.img_format
 
+    if not os.path.exists(tar_output_dir):
+        os.makedirs(tar_output_dir)
+
     # list of all images
     target_image_files = [x for x in os.listdir(
         src_image_dir) if x.endswith(img_format)]
