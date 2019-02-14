@@ -9,7 +9,12 @@ import numpy as np
 import cv2
 
 
-def video_to_images(vid_name, out_dir, img_prefix, img_format):
+def video_to_images(FLAGS):
+    vid_name = FLAGS.vid_name
+    out_dir = FLAGS.out_dir
+    img_prefix = FLAGS.img_prefix
+    img_format = FLAGS.img_format
+
     # create the output directory if not present
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
@@ -18,9 +23,9 @@ def video_to_images(vid_name, out_dir, img_prefix, img_format):
     video_capture = cv2.VideoCapture(vid_name)
     success = True
 
-    frame_count = 0
+    frame_count = 10000
 
-    print('Extracting images started')
+    print('Extracting images..........')
     while success:
         # try to extract a frame
         success, image_frame = video_capture.read()
@@ -59,13 +64,9 @@ def main():
     parser.add_argument('-img_format', default=img_format,
                         type=str, help='image saving format')
 
-    input_args = vars(parser.parse_args(sys.argv[1:]))
-    for k in input_args.keys():
-        print(k + ': ' + str(input_args[k]))
-    print('')
+    FLAGS, unparsed = parser.parse_known_args()
 
-    video_to_images(input_args['vid_name'], input_args['out_dir'],
-                    input_args['img_prefix'], input_args['img_format'])
+    video_to_images(FLAGS)
 
 
 if __name__ == '__main__':
