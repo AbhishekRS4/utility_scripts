@@ -1,10 +1,10 @@
-'''
+"""
 @author : Abhishek R S
-'''
+"""
 
 import os
-import numpy as np
 import cv2
+import numpy as np
 
 # source images directory
 # lbl directory
@@ -50,15 +50,15 @@ def main():
 
 			# show the resulting image
 			cv2.imshow("Image Visualizer - " + str(list_images[counter]), img)
-			
+
 			# get the key pressed
 			key_pressed = cv2.waitKey(0)
-			
+
 			#print(key_pressed)
 
 			# if down arrow is pressed increase the counter
 			# if up arrow is pressed decrease the counter
-			# if 'q' is pressed quit the visualizer
+			# if "q" is pressed quit the visualizer
 			if key_pressed == 1:
 				counter += 1
 			elif key_pressed == 0:
@@ -67,7 +67,7 @@ def main():
 				cv2.destroyAllWindows()
 				break
 
-			cv2.destroyAllWindows()	
+			cv2.destroyAllWindows()
 		except IOError:
 			print("File not an image or image file is corrupt")
 
@@ -78,6 +78,5 @@ def main():
 		if counter < 0:
 			counter = 0
 
-	
 if __name__ == "__main__":
 	main()
